@@ -1,7 +1,8 @@
 from flask import request
-from app.player import bp
+from app.team import bp
 from datetime import date
 from nba_api.stats.endpoints import commonteamroster
+
 # CommonTeamRoster.coaches()
 # ros = commonteamroster.CommonTeamRoster(season=2022,team_id=1610612744)
 # ros.get_dict()
@@ -14,11 +15,11 @@ def getSeason():
   y, m = date.today().year, date.today().month
   if m >= 10: return y
   else: return y - 1
-  
  
 #/?teamId=XXX
-@bp.route('/getTeam')
-def getTeamRoster2():
+@bp.route('/')
+def getTeamRoster():
+  print('in team route')
   try:
     teamId = request.args['teamId']
     roster = commonteamroster.CommonTeamRoster(season=getSeason(), team_id=teamId).get_normalized_dict()
@@ -34,12 +35,5 @@ def getTeamRoster2():
       'EXP': player['EXP'],
     }, players))
   except Exception as e:
+    # what to return for Flask
     return {}
-
-
-#TODO
-@bp.route('/<int:playerId>/')
-def playerStat(playerId):
-  return {
-    'id': f"I am player id: {playerId}"
-  }

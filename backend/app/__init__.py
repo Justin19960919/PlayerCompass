@@ -2,11 +2,13 @@
 # https://www.digitalocean.com/community/tutorials/how-to-structure-a-large-flask-application-with-flask-blueprints-and-flask-sqlalchemy#step-2-creating-a-configuration-file
 from flask import Flask
 from flask import request
+from flask_cors import CORS
 # import os 
 from config import Config
 # blueprints
 from app.player import bp as player_bp
-# best practice is to add / to back of url
+from app.team import bp as team_bp
+
 
 # STACKING ROUTES
 # @app.route("/")
@@ -58,26 +60,19 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     
     # Init flask extensions
-    
+    # TODO: fix when deploy
+    #https://flask-cors.corydolphin.com/en/latest/api.html#extension
+    # caches query results for 1 day = 86400 s
+    CORS(app,resources=[r'/team/*', r'/player/*'], origins=["http://localhost:3000"],methods=["GET","POST"],  max_age=86400)
     
     # Register blueprints for different routes here
     # blueprints
-    # from app.player import bp as player_bp
-    # app.register_blueprint(player_bp)
     app.register_blueprint(player_bp, url_prefix="/player")
+    app.register_blueprint(team_bp, url_prefix="/team")
 
     @app.route('/')
     def root():
         app.logger.info("main route")
         return '<h1>This is main route</h1>'
     
-    @app.route("/test2", methods=("GET", "POST"))
-    def getTest():
-        # form data: request.form[]
-        if request.method == "GET":
-            return
-        if request.method == "POST":
-            return
-
-    # redirect
     return app
