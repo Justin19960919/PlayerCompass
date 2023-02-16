@@ -1,0 +1,29 @@
+card-outer {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  background: #252627;
+}
+
+.card-inner {
+  border-radius: 5px;
+  background: #fff;
+  border: 0.1px solid #252627;
+  padding: 1rem 1rem;
+  display: block;
+  color: #252627;
+  text-decoration: none;
+  transition: transform 0.07s ease-out;
+}
+
+.card-outer:hover .card-inner {
+  transform: translate(-10px, -10px);
+}
+
+.position {
+  margin: 10px auto;
+  width: 85%;
+}
+
+.position h1 {
+}
