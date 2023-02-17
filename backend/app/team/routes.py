@@ -19,7 +19,6 @@ def getSeason():
 #/?teamId=XXX
 @bp.route('/')
 def getTeamRoster():
-  print('in team route')
   try:
     teamId = request.args['teamId']
     roster = commonteamroster.CommonTeamRoster(season=getSeason(), team_id=teamId).get_normalized_dict()
