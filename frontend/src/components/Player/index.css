@@ -1,0 +1,15 @@
+.stat {
+}
+
+.stat > h6 {
+  color: #949aa0;
+  font-weight: normal;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.stat > p {
+  font-size: 25px;
+  font-weight: bold;
+  color: #415a77;
+}

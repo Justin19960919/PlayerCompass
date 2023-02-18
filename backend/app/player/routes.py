@@ -11,3 +11,12 @@ def playerStat():
   except Exception as e:
     print(e) # add log
     return {}
+
+@bp.route('/')
+def playerName():
+  try:
+    playerId = int(request.args['playerId'])
+    return PlayerEngine.getPlayerName(playerId)
+  except Exception as e:
+    print(e)
+    return {}
