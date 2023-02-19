@@ -3,13 +3,14 @@ import { useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import Spinner from '../common/Spinner';
 import PlayerProfile from './PlayerProfile';
 import PlayerCareerBarChart from '../common/PlayerCareerBarChart';
 import PlayerShooting from './PlayerShooting'
+import PlayerPassing from './PlayerPassing';
 // utils
 import { fetchPlayerCareerData } from '../../services/player';
 import { fetchPlayerName } from '../../services/player';
-;
 
 const Player = () => {
 
@@ -26,9 +27,6 @@ const Player = () => {
   );
   const { data: playerName } = useQuery(['playerName', playerId], () => fetchPlayerName({ playerId }));
 
-  console.log(`player id is ${playerId}`);
-  console.log(`player career data: `, playerCareerData);
-
   const {
     chartData,
     currentSeason: seasonData,
@@ -37,7 +35,7 @@ const Player = () => {
 
   return (
     <>
-      {
+      {/* {
         isLoading &&
         <FontAwesomeIcon
           icon={faSpinner}
@@ -46,7 +44,10 @@ const Player = () => {
           color="#cfdbd5"
           style={{ margin: "100px auto", width: "100%" }}
         />
-      }
+      } */}
+
+      <Spinner isLoading={isLoading} />
+
       {
         isError && <h1 style={{ textAlign: "center" }}>
           We have encountered an error.
@@ -73,6 +74,7 @@ const Player = () => {
         }
       </div>
       <PlayerShooting playerId={playerId} />
+      <PlayerPassing playerId={playerId} />
     </>
   );
 }

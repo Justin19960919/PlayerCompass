@@ -30,3 +30,12 @@ def playerShootingStat():
   except Exception as e:
     print(e)
     return {}
+  
+@bp.route("/passing")
+def playerPassingStat():
+  try:
+    playerId, teamId = int(request.args['playerId']), int(request.args['teamId'])
+    return PlayerEngine.getPassingData(playerId, teamId)
+  except Exception as e:
+    print(e)
+    return {}

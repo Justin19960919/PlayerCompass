@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import "./index.css";
 
 const Position = ({ position, players }) => {
-  console.log('in position component');
   return (
     <div className="position">
       <h3>Position: {position}</h3>
@@ -45,7 +44,6 @@ const Position = ({ position, players }) => {
 }
 
 const Positions = ({ roster }) => {
-  console.log('roster', roster);
   const positions = {}
   if (roster) {
     roster.forEach(player => {
@@ -57,7 +55,6 @@ const Positions = ({ roster }) => {
       }
     })
   }
-  console.log('positions', positions);
   return (
     <div>
       {

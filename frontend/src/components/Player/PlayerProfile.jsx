@@ -51,50 +51,50 @@ const PlayerProfile = ({ seasonData, playerName }) => {
       <h1 style={{ marginBottom: "20px", color: "#4e4f50" }}>     {playerName.full_name}
       </h1>
 
-      <div class="row">
-        <div class="col">
+      <div className="row">
+        <div className="col">
           <Stat header="Age" data={profile['PLAYER_AGE']} />
         </div>
-        <div class="col">
+        <div className="col">
           <Stat header="Minutes" data={profile['MIN']} />
         </div>
-        <div class="col">
+        <div className="col">
           <Stat header="Points" data={profile['PTS']} />
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
+      <div className="row">
+        <div className="col">
           <Stat header="Field goal %" data={Math.round(profile['FG_PCT'] * 100, 2)} />
         </div>
-        <div class="col">
+        <div className="col">
           <Stat header="Three point %" data={Math.round(profile['FG3_PCT'] * 100, 2)} />
         </div>
-        <div class="col">
+        <div className="col">
           <Stat header="Free throw %" data={Math.round(profile['FT_PCT'] * 100, 2)} />
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
+      <div className="row">
+        <div className="col">
           <Stat header="Rebound" data={profile['REB']} />
         </div>
-        <div class="col">
+        <div className="col">
           <Stat header="Assist" data={profile['AST']} />
         </div>
-        <div class="col">
+        <div className="col">
           <Stat header="Steal" data={profile['STL']} />
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
+      <div className="row">
+        <div className="col">
           <Stat header="Block" data={profile['BLK']} />
         </div>
-        <div class="col">
+        <div className="col">
           <Stat header="Turnover" data={profile['TOV']} />
         </div>
-        <div class="col">
+        <div className="col">
           <Stat header="Personal Fouls" data={profile['PF']} />
         </div>
       </div>

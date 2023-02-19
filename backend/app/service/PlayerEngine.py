@@ -1,5 +1,9 @@
-from nba_api.stats.endpoints import playercareerstats, shotchartdetail, playerdashptshots, playerdashptpass, playerdashptshotdefend
+from nba_api.stats.endpoints import playercareerstats, playerdashptshots, playerdashptpass
+#shotchartdetail
+#playerdashptshotdefend
 from nba_api.stats.static import players
+
+ONE_SEASON = 82
 
 def nullCheck(num):
   return num if num else 0
@@ -76,7 +80,7 @@ class PlayerEngine:
     } 
 
   def getShootingData(playerId, teamId):
-    ONE_SEASON = 82
+    
     def flattenShootingData(shootingData):
       try:
         # key
@@ -152,13 +156,30 @@ class PlayerEngine:
       }   
     }
 
+  def getPassingData(playerId, teamId):
+    def flatten(passData):
+      keyIndex = 7
+      passIndex = 10
+      astIndex = 11
+      fgPct = 14
+      res = []
+      if 'data' in passData:
+        for data in passData['data']:
+          res.append({
+            "player": data[keyIndex],
+            "pass": data[passIndex],
+            "ast": data[astIndex],
+            "fgPct": data[fgPct],
+          })
+      res.sort(key=lambda x: x['pass'] if 'pass' in x else x, reverse=True)
+      return res
 
-
-
-
-
-
-
+    passData = playerdashptpass.PlayerDashPtPass(last_n_games=ONE_SEASON, player_id=playerId, team_id=teamId)
+    return {
+      "made": flatten(passData.passes_made.get_dict()),
+      "received": flatten(passData.passes_received.get_dict()),
+    }
+    
 
 
 
