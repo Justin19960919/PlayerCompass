@@ -6,7 +6,7 @@ const Position = ({ position, players }) => {
   console.log('in position component');
   return (
     <div className="position">
-      <h1>Position: {position}</h1>
+      <h3>Position: {position}</h3>
       {
         <table className="table">
           <thead>

@@ -2,6 +2,15 @@ from flask import request
 from app.player import bp
 from app.service.PlayerEngine import PlayerEngine
 
+@bp.route('/')
+def playerName():
+  try:
+    playerId = int(request.args['playerId'])
+    return PlayerEngine.getPlayerName(playerId)
+  except Exception as e:
+    print(e)
+    return {}
+
 #/player/careerStat?playerId=XX
 @bp.route('/careerStat')
 def playerStat():
@@ -12,11 +21,12 @@ def playerStat():
     print(e) # add log
     return {}
 
-@bp.route('/')
-def playerName():
+#/player/shooting
+@bp.route('/shooting')
+def playerShootingStat():
   try:
-    playerId = int(request.args['playerId'])
-    return PlayerEngine.getPlayerName(playerId)
+    playerId, teamId = int(request.args['playerId']), int(request.args['teamId'])
+    return PlayerEngine.getShootingData(playerId, teamId)
   except Exception as e:
     print(e)
     return {}

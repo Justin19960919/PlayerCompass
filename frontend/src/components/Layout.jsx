@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
             fontSize: '30px',
             color: "#202020", // change color later
           }}>
-            PlayerNav
+            PlayerCompass
           </span>
         </Link>
       </nav>

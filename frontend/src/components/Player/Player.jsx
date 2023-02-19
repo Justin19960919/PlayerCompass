@@ -5,9 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import PlayerProfile from './PlayerProfile';
 import PlayerCareerBarChart from '../common/PlayerCareerBarChart';
+import PlayerShooting from './PlayerShooting'
 // utils
 import { fetchPlayerCareerData } from '../../services/player';
 import { fetchPlayerName } from '../../services/player';
+;
 
 const Player = () => {
 
@@ -61,8 +63,6 @@ const Player = () => {
       <div className="flex-container">
         {
           playerCareerData && chartData && Object.entries(chartData).map(([metric, data]) => {
-            // choose rand color
-
             return (
               <PlayerCareerBarChart
                 metricType={metric}
@@ -72,6 +72,7 @@ const Player = () => {
           })
         }
       </div>
+      <PlayerShooting playerId={playerId} />
     </>
   );
 }

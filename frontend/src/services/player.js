@@ -16,3 +16,11 @@ export const fetchPlayerName = async ({ playerId }) => {
     }));
   return response.json();
 }
+
+export const fetchPlayerShooting = async ({ playerId, teamId }) => {
+  let response = await fetch(constructEndpoint('/player/shooting', {
+    playerId,
+    teamId,
+  }));
+  return response.json();
+}

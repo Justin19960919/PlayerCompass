@@ -8,6 +8,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+import PlayerShooting from './components/Player/PlayerShooting';
 
 const queryClient = new QueryClient();
 // use dotenv to consume api keys

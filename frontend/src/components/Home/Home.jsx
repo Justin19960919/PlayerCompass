@@ -3,19 +3,18 @@ import { useQuery } from '@tanstack/react-query';
 import Teams from './Teams';
 import TeamRoster from './TeamRoster';
 import { fetchRosterGivenTeamId } from '../../services/team';
-// icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-
+import "./index.css";
 
 const Home = () => {
-  const [teamId, setTeamId] = useState(null);
+  const [team, setTeam] = useState({ teamId: null, name: null });
   const teamRosterRef = useRef(null);
 
   const handleNBAIconClick = (event, id) => {
-    console.log(`team id: ${id}`);
-    if (id !== teamId) {
-      setTeamId(id);
+    if (id !== team.teamId) {
+      setTeam({
+        teamId: id,
+        name: event.target.alt,
+      });
     }
     window.scrollTo({
       top: teamRosterRef.current.offsetTop + 1000,
@@ -26,50 +25,44 @@ const Home = () => {
 
   // can access error variable inside
   const { data: teamRoster, isLoading, isError, refetch } = useQuery(
-    ['team-roster', teamId],
-    () => fetchRosterGivenTeamId(String(teamId)),
+    ['team-roster', team.teamId],
+    () => fetchRosterGivenTeamId(String(team.teamId)),
     { enabled: false }
   )
 
   // fetch team roster data from backend upon teamId change
   useEffect(() => {
     // if (teamId) refetch();
-    if (teamId) {
+    if (team.teamId) {
       refetch();
     }
-  }, [teamId, refetch]);
+  }, [team.teamId, refetch]);
 
-
-  let storageData = {
-    teamId: null,
-    roster: null,
-  };
   // store in local storage
   if (teamRoster) {
     localStorage.setItem("rosterData", JSON.stringify({
-      teamId: teamId,
+      teamId: team.teamId,
+      teamName: team.name,
       roster: teamRoster,
     }))
-  } else {
-    // check local storage and populate
-    let store = JSON.parse(localStorage.getItem("rosterData"));
-    if (store) {
-      storageData.roster = store['roster'];
-      storageData.teamId = store['teamId']
-    }
   }
 
   return (
     <>
+      <div className="slogan">
+        <h2>PlayerCompass, the place to navigate your players.</h2>
+        <h5>Click any team to show roster.</h5>
+      </div>
       <Teams
         handleClick={handleNBAIconClick}
       />
       <TeamRoster
-        teamId={teamId || storageData.teamId}
+        teamName={team.name}
+        teamId={team.teamId}
         teamRosterRef={teamRosterRef}
         isLoading={isLoading}
         isError={isError}
-        roster={teamRoster || storageData.roster}
+        roster={teamRoster}
       />
     </>
   );

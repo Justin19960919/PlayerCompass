@@ -65,13 +65,13 @@ const PlayerProfile = ({ seasonData, playerName }) => {
 
       <div class="row">
         <div class="col">
-          <Stat header="Field goal %" data={profile['FG_PCT']} />
+          <Stat header="Field goal %" data={Math.round(profile['FG_PCT'] * 100, 2)} />
         </div>
         <div class="col">
-          <Stat header="Three point %" data={profile['FG3_PCT']} />
+          <Stat header="Three point %" data={Math.round(profile['FG3_PCT'] * 100, 2)} />
         </div>
         <div class="col">
-          <Stat header="Free throw %" data={profile['FT_PCT']} />
+          <Stat header="Free throw %" data={Math.round(profile['FT_PCT'] * 100, 2)} />
         </div>
       </div>
 

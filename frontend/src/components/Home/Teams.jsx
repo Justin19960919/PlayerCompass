@@ -4,7 +4,6 @@ import InfoContainer from '../Info';
 import './index.css';
 
 const Teams = ({ handleClick }) => {
-  const welcomeMessage = "Click any nba team to render roster";
   return (
     <div>
       {/* TODO: i wanna change this, kinda ugly. */}
@@ -16,7 +15,7 @@ const Teams = ({ handleClick }) => {
             const imgSrc = "/nba_teams/nba-" + nbaTeam + ".png";
             return (
               <div onClick={event => handleClick(event, id)} key={id} className="card-outer">
-                <img alt={imgSrc} src={imgSrc} width="200" height="200" className="card-inner"
+                <img alt={teamName} src={imgSrc} width="200" height="200" className="card-inner"
                 />
               </div>
             );
