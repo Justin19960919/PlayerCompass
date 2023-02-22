@@ -14,11 +14,14 @@ I wanted to create a nice visualization tool in hopes for teams to understand ho
    ```
    cd frontend
    npm install
+   npm start
    ```
 3. Go to backend directory
    ```
    cd backend
+   python3 -m venv env
    pip install -r requirements.txt
+   flask run
    ```
 4. Enjoy!
 
