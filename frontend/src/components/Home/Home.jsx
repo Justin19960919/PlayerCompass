@@ -55,7 +55,7 @@ const Home = () => {
   // }
   useEffect(() => {
     if (teamRoster && teamRoster !== teamData.roster) {
-      console.log(`fetched team roster: `, teamRoster)
+      // console.log(`fetched team roster: `, teamRoster)
       setTeamData(prevState => ({
         ...prevState,
         roster: teamRoster,

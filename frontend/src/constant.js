@@ -1,6 +1,3 @@
-//TODO: put in env
-export const BACKEND_URL = "http://127.0.0.1:5000";
-
 export const NBA_TEAMS = {
   "Atlanta Hawks": 1610612737,
   "Boston Celtics": 1610612738,
@@ -33,29 +30,3 @@ export const NBA_TEAMS = {
   "Detroit Pistons": 1610612765,
   "Charlotte Hornets": 1610612766,
 }
-
-// "LEAGUE_ID",
-//   "TEAM_ID",
-//   "TEAM_ABBREVIATION",
-//   "PLAYER_AGE",
-//   "GP",
-//   "GS",
-//   "MIN",
-//   "FGM",
-//   "FGA",
-//   "FG_PCT",
-//   "FG3M",
-//   "FG3A",
-//   "FG3_PCT",
-//   "FTM",
-//   "FTA",
-//   "FT_PCT",
-//   "OREB",
-//   "DREB",
-//   "REB",
-//   "AST",
-//   "STL",
-//   "BLK",
-//   "TOV",
-//   "PF",
-//   "PTS"

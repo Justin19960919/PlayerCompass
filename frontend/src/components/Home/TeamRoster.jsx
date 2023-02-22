@@ -41,7 +41,7 @@ const TeamRoster = ({
   // console.log(`isDataInLocalStorage: `, isDataInLocalStorage);
   // console.log('isDataFetched: ', isDataFetched)
   // console.log('isFetchingData:', isFetchingData)
-  console.log('teamData: ', teamData);
+  // console.log('teamData: ', teamData);
   return (
     <div ref={teamRosterRef}>
       <h1 className="position">{teamData.teamName || ""}</h1>

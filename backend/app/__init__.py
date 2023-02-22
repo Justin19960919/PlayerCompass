@@ -63,8 +63,8 @@ def create_app(config_class=Config):
     # TODO: fix when deploy
     #https://flask-cors.corydolphin.com/en/latest/api.html#extension
     # caches query results for 1 day = 86400 s
-    CORS(app,resources=[r'/team/*', r'/player/*'], origins=["http://localhost:3000"],methods=["GET","POST"],  max_age=86400)
-    
+    CORS(app,resources=[r'/team/*', r'/player/*'], origins="*",methods=["GET","POST"],  max_age=86400)
+
     # Register blueprints for different routes here
     # blueprints
     app.register_blueprint(player_bp, url_prefix="/player")
