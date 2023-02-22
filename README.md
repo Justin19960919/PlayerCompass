@@ -1,56 +1,31 @@
 # PlayerCompass
-PlayerCompass, a web app designed to help you navigate a player through visualization.
+PlayerCompass, a web app designed to help you navigate a player through visualization. This web app is built using a Flask backend and a React frontend with features including Player career statistics, shooting statistics and passing statistics. The data is pulled directly from nba.com using a python backend api that retreives the data for the specific player
 
 ## About The Project
-
-
-### Built With
-
-* Django
-* Python 
-* JavaScript
-* PostGreSql
-* Javascript
-* Jquery
-* Css
-
-
-### Prerequisites
-To use the django framework:
-```
-pip install Django
-```
-Other dependencies include:
-- django-crispy-forms
-- PILLOW
-
+I wanted to create a nice visualization tool in hopes for teams to understand how a player is progressing throughout his career, what changes he should make in terms of shooting, and gain a glimpse on what teammates the player interact with the most through passing.
 
 ### How to run the app
 
 1. Clone the repo
    ```
-   git clone https://github.com/Justin19960919/BasketStat.git
+   git clone [my-repo]
    ```
-2. Activate virtual environment
+2. Go to frontend directory
    ```
-   source env/bin/activate
+   cd frontend
+   npm install
    ```
-   
-3. Make migrations to populate db
-   ```python
-   python manage.py makemigrations
-   python manage.py migrate
+3. Go to backend directory
    ```
+   cd backend
+   pip install -r requirements.txt
+   ```
+4. Enjoy!
 
-4. Run server
-   ```
-   python manage.py runserver
-   ```
-
-5. Visit local host
-   Go to http://localhost:8000/
-
-
-## Features
-An user is a whole basketball team, different teams can't access each others information.
+### Pics
+![Screen Shot 2023-02-21 at 10 16 41 PM](https://user-images.githubusercontent.com/36942121/220547485-9b30e2fe-915a-4332-b64f-7aa211e4f277.png)
+![Screen Shot 2023-02-21 at 10 16 50 PM](https://user-images.githubusercontent.com/36942121/220547493-bbc78c0f-9a41-4caa-8864-3904ece9cabe.png)
+![Screen Shot 2023-02-21 at 10 16 59 PM](https://user-images.githubusercontent.com/36942121/220547494-660da727-f0cd-4f82-85dd-696f024d8384.png)
+![Screen Shot 2023-02-21 at 10 17 09 PM](https://user-images.githubusercontent.com/36942121/220547496-f0c99405-ef77-4a48-bf1e-b91b904c7d73.png)
+![Screen Shot 2023-02-21 at 10 17 17 PM](https://user-images.githubusercontent.com/36942121/220547499-3e06e8c4-a987-43da-aff8-9ebc16c330ad.png)
 
