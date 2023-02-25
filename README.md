@@ -1,5 +1,5 @@
 # PlayerCompass
-PlayerCompass, a web app designed to help you navigate a player through visualization. This web app is built using a Flask backend and a React frontend with features including Player career statistics, shooting statistics and passing statistics. The data is pulled directly from nba.com using a python backend api that retreives the data for the specific player
+PlayerCompass, a web app designed to help you navigate a NBA player through visualization. This web app is built using a Flask backend and a React frontend with features including Player career statistics, shooting statistics and passing statistics. The data is pulled directly from nba.com using a python backend api that retreives the data for the specific player
 
 ## About The Project
 I wanted to create a nice visualization tool in hopes for teams to understand how a player is progressing throughout his career, what changes he should make in terms of shooting, and gain a glimpse on what teammates the player interact with the most through passing.
